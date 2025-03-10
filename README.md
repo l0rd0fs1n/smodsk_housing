@@ -117,7 +117,7 @@
 
 ## Wardrobe
 **File:** `configs/wardrobe.lua`
-- You can configure the models that will display the `Open wardrobe option`. You can also find the method that triggers this action in the same file:
+- You can configure the models that will display the `Open wardrobe option`. You can also find the method that's triggered when `Open wardrobe option` is selected:
 ```lua
 function OpenWardrobe()
     -- TODO 
@@ -127,7 +127,7 @@ end
 
 ## PlayerData (IMPORTANT)
 **File:** `properties/bridge/multi/client/playerData.lua`
-- You might need to add your own events here that are triggered when playerPed is selected and loaded
+- **You might need to add your own events here that's are triggered when player is loadeded**
 ```lua
 RegisterNetEvent('esx:setJob', function(job, lastJob)
    PlayerData.SetJob(job.name, job.grade)
