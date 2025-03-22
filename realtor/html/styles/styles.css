@@ -1,0 +1,373 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    display: none;
+    color: white;
+}
+
+#wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(31, 41, 55);
+    border-radius: 15px;
+    padding: 20px;
+    width: 800px;
+    height: 1050px;
+    max-width: 900px;
+}
+
+#close i {
+    position: absolute;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    right: 8px;
+    top: 8px;
+}
+
+#refresh i {
+    position: absolute;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    left: 8px;
+    top: 8px;
+}
+
+#grid-content {
+    display: none;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: auto;
+}
+
+
+#front-container {
+    color: white;
+    display: "block";
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+}
+
+.image-container img {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+    height: auto;
+    border: 6px solid white;
+    border-radius: 16px;
+}
+
+
+#pagination-container {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.card {
+    background: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card p {
+    margin: 10px 0 0;
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 15px;
+}
+
+#popup-content {
+    background-color: rgb(31, 41, 55);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin: auto;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+/* Add image button */
+.add-image {
+    width: 80%;
+    max-width: 100px;
+    cursor: pointer;
+    opacity: 0.6;
+    color: white;
+    border: 6px solid white;
+}
+
+.add-image:hover {
+    opacity: 1;
+}
+
+
+.edit-popup {
+    display: none;
+    position: fixed;
+    border-radius: 15px;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+}
+
+
+.popup-content {
+    width: 50%;
+    text-align: center;
+    background-color: rgb(31, 41, 55);
+    padding: 20px;
+    border-radius: 8px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 6px solid white;
+    color: white;
+    position: relative;
+}
+
+
+
+.popup-content h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Input field */
+.popup-content input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#image-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    flex-direction: column;
+}
+
+#large-image {
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 10px;
+    border: 6px solid white;
+}
+
+.description-container {
+    text-align: left;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: flex; 
+    flex-direction: column; 
+}
+
+
+.description-container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+#property-description {
+    min-height: 100px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    resize: none;
+    -ms-overflow-style: none;
+    border: none;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+
+#property-description:focus {
+    outline: none;
+    border: none;
+}
+
+#property-description:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+
+
+
+.shell-data {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 10px;  
+}
+
+.shell-data > div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 200px;
+    font-size: 16px;
+}
+
+
+select {
+    margin-top: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+.option-shell {
+    background-color:rgb(211,211,211);
+}
+
+.option-smShell {
+    background-color:rgb(184,184,184);
+}
+
+.option-smShellTemplate {
+    background-color:rgb(152,152,152);
+}
+
+
+#offers-content {
+    overflow: auto;
+    height: 900px;
+    color: white;
+}
+
+.offer-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background-color: rgb(17, 24, 39);
+    border: 4px solid white;
+    border-radius: 16px;
+    padding: 12px;
+    color: white;
+    text-align: center;
+}
+
+.offer-block {
+    background-color: rgb(31, 41, 55);
+    border-radius: 12px;
+    padding: 10px;
+    border: 2px solid white;
+}
+
+#basic-container {
+    overflow: auto;
+    height: 900px;
+    color: white;
+}
+
+.basic-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    background-color: rgb(17, 24, 39);
+    border: 4px solid white;
+    border-radius: 16px;
+    padding: 12px;
+    color: white;
+    text-align: center;
+}
+
+.basic-block {
+    background-color: rgb(31, 41, 55);
+    border-radius: 12px;
+    padding: 10px;
+    border: 2px solid white;
+}
+
+.basic-block img {
+    border-radius: 16px;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    display: block;
+    margin-bottom: 8px;
+}
