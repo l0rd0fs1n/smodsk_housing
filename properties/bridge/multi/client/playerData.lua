@@ -59,7 +59,8 @@ end
 -- Loading playerData --
 local function getData(player)
     if ESX then
-        if not player then 
+        if not player then
+            if not ESX.PlayerData or not ESX.PlayerData.job then return end
             PlayerData.SetPlayer(ESX.PlayerData.identifier)
             PlayerData.SetJob(ESX.PlayerData.job.name, ESX.PlayerData.job.grade)
         else
@@ -68,7 +69,8 @@ local function getData(player)
         end
     elseif QBCore or QBX then
         local Player = QBCore.Functions.GetPlayerData()
-        PlayerData.SetPlayer(Player.identifier)
+        if not Player or not Player.job then return end 
+        PlayerData.SetPlayer(Player.citizenid)
         PlayerData.SetJob(Player.job.name, 1)
     end
 

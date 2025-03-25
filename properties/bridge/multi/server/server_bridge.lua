@@ -189,10 +189,13 @@ end
 function AddCompanyMoney(company, amount)
 	if ESX then
 		if GetResourceState("esx_addonaccount") == "started" then
-			local account = exports['esx_addonaccount']:getSharedAccount(company)
-			if account then
-				account.addMoney(amount)
-			end
+			TriggerEvent('esx_addonaccount:getSharedAccount', company, function(account)
+				if account then
+					account.addMoney(amount)
+				else
+					print("Company account not found!")
+				end
+			end)
 		end
 	elseif QBCore or QBX then
 		if GetResourceState("qb-management") == "started" then
@@ -204,10 +207,13 @@ end
 function RemoveCompanyMoney(company, amount)
 	if ESX then
 		if GetResourceState("esx_addonaccount") == "started" then
-			local account = exports['esx_addonaccount']:getSharedAccount(company)
-			if account then
-				account.removeMoney(amount)
-			end
+			TriggerEvent('esx_addonaccount:getSharedAccount', company, function(account)
+				if account then
+					account.removeMoney(amount)
+				else
+					print("Company account not found!")
+				end
+			end)
 		end
 	elseif QBCore or QBX then
 		if GetResourceState("qb-management") == "started" then

@@ -178,11 +178,11 @@ local function addMoney(identifier, amount)
         if found then break end
     end
 
-    --if found then
-        --AddCash(playerId, amount)
-    --else
+    if found then
+        AddCash(playerId, amount)
+    else
         Database.AddBankMoney(identifier, amount)
-    --end
+    end
 end
 
 

@@ -5,6 +5,7 @@
 - [Known Problems](#known-problems)
     - [Server](#server)
     - [Client](#client)
+- [ Installation Guide](#installation-guide)
 - [Server-Specific Customizations](#server-specific-customizations)
     - [Adding new Shells/MLOs](#adding-new-shells-mlos)
     - [Creating new Apartment Buildings](#creating-new-apartment-buildings)
@@ -19,11 +20,11 @@
 
 <br><br>
 # Description
-- [Preview Youtube]()
+- [Preview Youtube](https://youtu.be/Fx1mD9LIfg0)
 - A versatile housing and realtor script designed to support multiple frameworks, with plans for even better compatibility in the future.
 - Realtors can create new properties and put them up for sale. Players can then make offers on those properties. If a player owns a property, they can also list it for sale.
 - This script is still a work in progress, and your feedback is invaluable. Please report any bugs through my [Discord](https://discord.com/invite/yTGYZ7MGvM) for the best support.
-
+- **No Realtor Society Job Menus:** This script does not include realtor_society job menus or related features. A separate script will be required if you need this functionality.
 
 
 <br><br>
@@ -41,6 +42,7 @@
 - [ox_inventory](https://github.com/overextended/ox_inventory) or [~~qb-inventory~~](https://github.com/qbcore-framework/qb-inventory)
 - [ESX](https://github.com/esx-framework/esx_core) or [QBOX](https://github.com/Qbox-project) or [~~QBCore~~](https://github.com/qbcore-framework/qb-core)
 - [prop_selector](https://github.com/sModsk/prop_selector)
+- [baseeevents](https://docs.fivem.net/docs/resources/baseevents/)
 
 
 ### Optional
@@ -48,15 +50,30 @@
 
 
 <br><br>
-# Known Problems
-- Tested with **Artifact version v1.0.0.10778**
+# Tested with
+- **Artifact version v1.0.0.10778**
+- ESX legacy 
+- Qbox
 
+<br><br>
+# Known Problems
 ### Server
 - `GetVehiclePedIsIn(ped, false)`: **Depending on your server artifact version, this native might not work.**  
     - **IF IT FAILS, IT WILL BREAK EVERYTHING. ENSURE YOU ARE USING AN ARTIFACT VERSION WHERE THIS NATIVE FUNCTIONS CORRECTLY.**
 
 ### Client
 - For some reason, other clients may not see players in the same bucket. A relog usually resolves this issue.
+
+
+<br><br>
+# Installation Guide  
+1. Unpack `smodsk_housing_stream.rar` and run the resource as a standalone resource.  
+2. Run the `db.sql` file located in `database/db.sql`.  
+3. Install [Dependencies & Add-ons](#dependencies-and-optional-add-ons).  
+4. Configure the [database](#database-important).  
+5. Configure the [garage](#garage-important).  
+6. Configure [vehicle properties](#vehicle-properties-important).  
+
 
 
 <br><br>
@@ -163,7 +180,6 @@ end)
 - Depending on your system, you might need to remove the comment from `AddStateBagChangeHandler("setVehicleProperties")` to activate it.
 ```lua
 Entity(vehicle).state["setVehicleProperties"]
-Entity(vehicle).state["setVehicleComponents"]
 ```
 
 ### Vehicle Position Saving

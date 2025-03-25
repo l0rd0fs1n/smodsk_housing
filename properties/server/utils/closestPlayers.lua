@@ -5,7 +5,7 @@ function GetClosestPlayers(source, coords, range, onlySource)
         if otherSource ~= source then
             local otherPed = GetPlayerPed(otherSource)
             local otherCoords = GetEntityCoords(otherPed)
-            local distance = #(coords - otherCoords) -- Corrected variable name
+            local distance = #(coords - otherCoords)
             if distance < (range or 10.0) then
                 if not onlySource then
                     table.insert(closestPlayers, GetPlayerData(otherSource))
