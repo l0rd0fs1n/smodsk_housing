@@ -40,7 +40,7 @@ function Bridge.ox.BuildingApartmentMenu(property)
             title = GetLocale("RING_BELL"),
             icon = 'fa-fas fa-bell',
             onSelect = function()
-                TriggerServerEvent(Evt.."RingBell", {id = property.id})
+                TriggerServerEvent(Evt.."RingDoorbell", {id = property.id})
             end
         })
     end 

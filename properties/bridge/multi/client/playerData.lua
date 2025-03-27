@@ -88,6 +88,12 @@ RegisterNetEvent('esx:playerLoaded',function(xPlayer)
     getData(xPlayer)
 end)
 
+RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
+    local Player = QBCore.Functions.GetPlayerData()
+    if not Player or not Player.job then return end 
+    PlayerData.SetJob(Player.job.name, 1)
+end)
+
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     getData()
 end)

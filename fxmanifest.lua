@@ -28,6 +28,7 @@ client_scripts {
     "properties/bridge/*.lua",
     "properties/bridge/multi/client/**",
     "properties/bridge/ox/client/**/**",
+    "properties/bridge/qb/client/**/**",
 }
 
 
@@ -48,6 +49,7 @@ server_scripts {
     "properties/bridge/*.lua",
     "properties/bridge/multi/server/**",
     "properties/bridge/ox/server/**/**",
+    "properties/bridge/qb/server/**/**",
 }
 
 

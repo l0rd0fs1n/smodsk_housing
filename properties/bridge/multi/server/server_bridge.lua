@@ -7,6 +7,7 @@ function GetPlayerData(source)
     end
 end
 
+
 function GetIdentifier(source)
 	local Player = GetPlayerObject(source)
     if QBCore or QBX then
@@ -198,11 +199,18 @@ function AddCompanyMoney(company, amount)
 			end)
 		end
 	elseif QBCore or QBX then
-		if GetResourceState("qb-management") == "started" then
+		if GetResourceState("qb-banking") == "started" then
+			exports['qb-banking']:AddMoney(company, amount, '')
+		elseif GetResourceState("qb-management") == "started" then
 			exports['qb-management']:AddMoney(company, amount)
 		end
 	end
 end
+
+
+RegisterCommand("_AddCompanyMoney", function()
+	AddCompanyMoney("realestate", 50)
+end)
 
 function RemoveCompanyMoney(company, amount)
 	if ESX then

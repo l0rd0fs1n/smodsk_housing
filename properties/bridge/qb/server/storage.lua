@@ -1,4 +1,4 @@
--- qb_inventory does not provide a direct option to remove a stash, and since data can still be saved after storage removal, 
+-- ox_inventory does not provide a direct option to remove a stash, and since data can still be saved after storage removal, 
 -- we cannot simply delete the stash from the database when a player removes storage.
 --
 -- Plan:
@@ -9,18 +9,18 @@
 
 local surfix = "-property"
 
-Bridge.ox.Storage = {
+Bridge.qb.Storage = {
     registeredStorages = {},
     removedStorages = {},
 }
 
-function Bridge.ox.Storage.Remove(id)
+function Bridge.qb.Storage.Remove(id)
     local storageId = id..surfix
     Bridge.ox.Storage.removedStorages[storageId] = true
     SetResourceKvp("storageIds", json.encode(Bridge.ox.Storage.removedStorages))
 end
 
-function Bridge.ox.Storage.Open(source, id, model)
+function Bridge.qb.Storage.Open(source, id, model)
     local storageId = id..surfix
     if Bridge.ox.Storage.removedStorages[storageId] then return end
 
@@ -31,26 +31,19 @@ function Bridge.ox.Storage.Open(source, id, model)
     local slots = storageData.slots or 20
     local weight = storageData.weight or 10000000
 
-    Bridge.ox.Storage.registeredStorages[storageId] = true
-    exports.ox_inventory:RegisterStash(
-        storageId,
-        name, 
-        slots, 
-        weight,
-        false
-    )
-
-
-    exports.ox_inventory:forceOpenInventory(source, 'stash', storageId)
+    local data = { label = name, maxweight = weight, slots = slots }
+    exports['qb-inventory']:OpenInventory(source, storageId, data)
 end
 
-if ox_inventory then
+Wait(1000)
+
+if qb_inventory then
     local storageString = GetResourceKvpString("storageIds")
     if storageString then
         local storageIds = json.decode(storageString)
         if type(storageIds) == "table" then
             for storageId, value in pairs(storageIds) do
-                MySQL.Async.execute("DELETE FROM ox_inventory WHERE name = ?", {storageId})
+                MySQL.Async.execute("DELETE FROM inventories WHERE identifier = ?", {storageId})
             end
         end
         SetResourceKvp("storageIds", json.encode({}))

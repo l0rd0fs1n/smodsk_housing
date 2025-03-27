@@ -1,14 +1,15 @@
 function GetClosestPlayers(source, coords, range, onlySource)
     local closestPlayers = {}
+    local mySource = tostring(source)
     for k, v in pairs(GetPlayers()) do
         local otherSource = v
-        if otherSource ~= source then
+        if otherSource ~= mySource then
             local otherPed = GetPlayerPed(otherSource)
             local otherCoords = GetEntityCoords(otherPed)
             local distance = #(coords - otherCoords)
             if distance < (range or 10.0) then
                 if not onlySource then
-                    table.insert(closestPlayers, GetPlayerData(otherSource))
+                    table.insert(closestPlayers, GetPlayerData(tonumber(otherSource)))
                 else
                     table.insert(closestPlayers, otherSource)
                 end
