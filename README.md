@@ -29,7 +29,6 @@
 
 <br><br>
 # TODO
-- Finish [QBCore](https://github.com/qbcore-framework/qb-core) support
 - Polish
 
 <br><br>
@@ -37,10 +36,10 @@
 
 ### Dependencies  
 - [oxmysql](https://github.com/overextended/oxmysql)  
-- [ox_lib](https://github.com/overextended/ox_lib) or [~~QBCore~~](https://github.com/qbcore-framework/qb-core)
-- [ox_target](https://github.com/overextended/ox_target) or [~~qb-target~~](https://github.com/qbcore-framework/qb-target)
-- [ox_inventory](https://github.com/overextended/ox_inventory) or [~~qb-inventory~~](https://github.com/qbcore-framework/qb-inventory)
-- [ESX](https://github.com/esx-framework/esx_core) or [QBOX](https://github.com/Qbox-project) or [~~QBCore~~](https://github.com/qbcore-framework/qb-core)
+- [ox_lib](https://github.com/overextended/ox_lib) or [QBCore](https://github.com/qbcore-framework/qb-core)
+- [ox_target](https://github.com/overextended/ox_target) or [qb-target](https://github.com/qbcore-framework/qb-target)
+- [ox_inventory](https://github.com/overextended/ox_inventory) or [qb-inventory](https://github.com/qbcore-framework/qb-inventory)
+- [ESX](https://github.com/esx-framework/esx_core) or [QBOX](https://github.com/Qbox-project) or [QBCore](https://github.com/qbcore-framework/qb-core)
 - [prop_selector](https://github.com/sModsk/prop_selector)
 
 
