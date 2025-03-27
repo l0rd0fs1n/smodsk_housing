@@ -42,7 +42,6 @@
 - [ox_inventory](https://github.com/overextended/ox_inventory) or [~~qb-inventory~~](https://github.com/qbcore-framework/qb-inventory)
 - [ESX](https://github.com/esx-framework/esx_core) or [QBOX](https://github.com/Qbox-project) or [~~QBCore~~](https://github.com/qbcore-framework/qb-core)
 - [prop_selector](https://github.com/sModsk/prop_selector)
-- [baseeevents](https://docs.fivem.net/docs/resources/baseevents/)
 
 
 ### Optional
@@ -181,12 +180,3 @@ end)
 ```lua
 Entity(vehicle).state["setVehicleProperties"]
 ```
-
-### Vehicle Position Saving
-- Vehicle enter and exit events are tracked using baseevents.
-- Positions are saved every time a player exits a vehicle inside the garage.
-```lua
-RegisterServerEvent("baseevents:enteredVehicle")
-RegisterServerEvent("baseevents:leftVehicle")
-```
-

@@ -38,8 +38,7 @@ function SpawnVehicles(source, vehiclesData, propertyId, spawnPosition, callback
 end
 
 
-
-RegisterServerEvent("baseevents:enteredVehicle", function(vehicle, currentSeat, vehicleDisplayName, vehicleNetId)
+RegisterServerEvent(Evt.."EnteredVehicle", function(currentSeat, vehicleNetId)
     local source = source
     if currentSeat == -1 then
         local veh = WaitUntillNet(vehicleNetId)
@@ -47,11 +46,10 @@ RegisterServerEvent("baseevents:enteredVehicle", function(vehicle, currentSeat, 
     end
 end)
 
-RegisterServerEvent("baseevents:leftVehicle", function(vehicle, currentSeat, vehicleDisplayName, vehicleNetId)
+RegisterServerEvent(Evt.."ExitedVehicle", function(currentSeat, vehicleNetId)
     local source = source
     if currentSeat == -1 then
         local veh = WaitUntillNet(vehicleNetId)
         PlayerExitedVehicle(source, veh)
     end
 end)
-

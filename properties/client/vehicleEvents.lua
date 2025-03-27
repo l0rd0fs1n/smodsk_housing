@@ -63,3 +63,35 @@ RegisterNetEvent(Evt.."SpawnVehicles", function(data, serverEvent)
         TriggerServerEvent(serverEvent, vehicles)
     end
 end)
+
+
+CreateThread(function()
+    local lastVehicle = 0
+    local vehicleNetId = 0
+    local lastSeat = 0
+
+    while true do
+        local playerPed = PlayerData.PlayerPed()
+        local vehicle = GetVehiclePedIsIn(playerPed, false)
+
+        if vehicle ~= lastVehicle then
+            if vehicle == 0 and lastVehicle ~= 0 then
+                TriggerServerEvent(Evt.."ExitedVehicle", lastSeat, vehicleNetId)
+                lastVehicle = 0
+                lastSeat = 0
+            elseif vehicle ~= 0 and lastVehicle == 0 then
+                vehicleNetId = NetworkGetNetworkIdFromEntity(vehicle)
+                if GetPedInVehicleSeat(vehicle, -1) == playerPed then
+                    lastSeat = -1
+                else
+                    lastSeat = 0
+                end
+                TriggerServerEvent(Evt.."EnteredVehicle", lastSeat, vehicleNetId)
+            end
+
+            lastVehicle = vehicle
+        end
+
+        Wait(500)
+    end
+end)
