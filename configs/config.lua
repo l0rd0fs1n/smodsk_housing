@@ -1,6 +1,8 @@
 Evt = "smodsk_housing:"
 Config = {}
 
+-- esx realtorjobName usually "realtor"
+-- qb/qbx realtorjobName usually "realestate"
 Config.realtorJobName = "realtor"
 Config.realtorSocietyAccountName = "realtor"
 

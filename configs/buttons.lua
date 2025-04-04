@@ -7,7 +7,11 @@ if not IsDuplicityVersion() then
             ["ADD_POINT"] = 38,
             ["MOVE_POINT"] = 157,
             ["ADD_MID_POINT"] = 158,
-            ["REMOVE_POINT"] = 160
+            ["REMOVE_POINT"] = 160,
+
+            ["DOOR_OFFSET"] = 38,
+            ["Z_OFFSET_UP"] = 172,
+            ["Z_OFFSET_DOWN"] = 173,
         }
     }
 

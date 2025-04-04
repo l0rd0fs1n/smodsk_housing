@@ -92,6 +92,10 @@ Localization = {
             ["UNLOCK_FOR"] = "Unlock For",
             ["WARDROBE"] = "Wardrobe",
             ["YOU_OWN_MAX_PROPERTIES"] = "You own max amount of properties",
+
+            ["DOOR_OFFSET"] = "Door offset",
+            ["Z_OFFSET_DOWN"] = "-Z Offset",
+            ["Z_OFFSET_UP"] = "+Z Offset",
         },        
         ["FI"] = {
             ["ACCEPT"] = "Hyväksy",
@@ -184,6 +188,10 @@ Localization = {
             ["UNLOCK_FOR"] = "Avaa henkilölle",
             ["WARDROBE"] = "Vaatekaappi",
             ["YOU_OWN_MAX_PROPERTIES"] = "Omistat jo maksimimäärän asuntoja",
+
+            ["DOOR_OFFSET"] = "Oven offset",
+            ["Z_OFFSET_DOWN"] = "-Z Offset",
+            ["Z_OFFSET_UP"] = "+Z Offset",
         },        
     },
 }

@@ -12,8 +12,8 @@ shared_scripts {
 
 client_scripts {
     "tools/client/**",
-    "configs/**",
 
+    "configs/**",
     "properties/shared/**/**",
     "properties/client/doors/*.lua",
     "properties/client/*.lua",
@@ -29,6 +29,9 @@ client_scripts {
     "properties/bridge/multi/client/**",
     "properties/bridge/ox/client/**/**",
     "properties/bridge/qb/client/**/**",
+
+    "commands.lua",
+    "exports.lua",
 }
 
 
@@ -50,6 +53,9 @@ server_scripts {
     "properties/bridge/multi/server/**",
     "properties/bridge/ox/server/**/**",
     "properties/bridge/qb/server/**/**",
+
+    "commands.lua",
+    "exports.lua",
 }
 
 
