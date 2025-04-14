@@ -14,6 +14,8 @@ client_scripts {
     "tools/client/**",
 
     "configs/**",
+    "configs/localization/*lua",
+    
     "properties/shared/**/**",
     "properties/client/doors/*.lua",
     "properties/client/*.lua",
@@ -41,6 +43,7 @@ server_scripts {
     "database/*lua",
 
     "configs/**",
+    "configs/localization/*lua",
     "properties/shared/**/**",
     "properties/server/*.lua",
     "properties/server/classes/**",
